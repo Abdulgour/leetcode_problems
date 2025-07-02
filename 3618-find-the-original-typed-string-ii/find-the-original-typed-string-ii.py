@@ -29,6 +29,6 @@ class Solution:
                     num=(num-dp[j-n-1]) % mod
                 dummy[j]=num
             dp=dummy
-        inv=sum(dp[len(l):k])%mod
-        possibleString=(totalpossiblestring-inv)%mod
+        notpossible=sum(dp[len(l):k])
+        possibleString=(totalpossiblestring-notpossible)%mod
         return possibleString
