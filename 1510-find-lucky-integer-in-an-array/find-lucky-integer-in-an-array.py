@@ -1,15 +1,18 @@
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        lucky=[]
-        for num in arr:
-            count=0
-            for i in range(len(arr)):
-                if num==arr[i]:
-                    count+=1
-            if count==num:
-                lucky.append(count)
-        if not lucky:
-            return -1
-        else:
-            Max=max(lucky)
-        return Max
+        freq=[]
+        for i in range(len(arr)):
+            found=False
+            for j in range(len(freq)):
+                if freq[j][0]==arr[i]:
+                    freq[j][1]+=1
+                    found=True
+                    break
+            if not found:
+                freq.append([arr[i] ,1])
+        max=-1
+        for i in range(len(freq)):
+            if freq[i][0]==freq[i][1]:
+                if freq[i][0] > max:
+                    max= freq[i][0]
+        return max
