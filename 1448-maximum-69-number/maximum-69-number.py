@@ -1,19 +1,15 @@
 class Solution:
     def maximum69Number (self, num: int) -> int:
-        nums=[]
-        while num:
-            n=num%10
-            num//=10
-            nums.insert(0,n)
-        count=0
+        n=str(num)
         res=0
-        for i in nums:
-            if i==6:
-                if count<1:
+        c=0
+        for i in n:
+            if i=="6":
+                if c<1:
                     res=res*10+9
-                    count+=1
+                    c+=1
                 else:
-                    res=res*10+i
+                    res=res*10+int(i)
             else:
-                res=res*10+i
+                    res=res*10+int(i)
         return res
