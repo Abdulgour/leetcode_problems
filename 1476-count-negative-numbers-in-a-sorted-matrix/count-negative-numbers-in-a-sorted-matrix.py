@@ -4,5 +4,6 @@ class Solution:
         for i in range(len(grid)):
             for j in range(len(grid[i])):
                 if grid[i][j] < 0:
-                    count += 1
+                    count += len(grid[i])-j
+                    break
         return count
